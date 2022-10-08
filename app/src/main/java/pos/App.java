@@ -1,6 +1,8 @@
 package pos;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 public class App{
     public static void main(String[] args) {
@@ -51,9 +53,21 @@ public class App{
 
         //assign a table
         int tableNumber = 50;
-        
+        int tableNumber2 = 60;
+        String server ="Boo";
+
         //create and order object
-        Order firstOrder = new Order(orderMap, 50);
+        Order firstOrder = new Order(orderMap, server, 50);
+        try {
+            System.out.printf("Start Time: %s\n", LocalTime.now());
+            TimeUnit.SECONDS.sleep(2);  // Wait 2 seconds
+            System.out.printf("End Time: %s\n", LocalTime.now());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //create and order object
+        Order secondOrder = new Order(orderMap, server, tableNumber2);
 
         //peek at the order
         System.out.println(firstOrder.getOrderAndSeatPos());
@@ -68,10 +82,41 @@ public class App{
         //sanity check
         //peek at the order
         System.out.println(firstOrder.getOrderAndSeatPos());
+         
+        //remove item from order
+        firstOrder.removeItemFromOrder("1", "200002");
         
+        //peek at the order
+        System.out.println(firstOrder.getOrderAndSeatPos());
+
         //get the total price before tax and grat
         System.out.println(firstOrder.getOrderTotalPrice());
+        System.out.println(firstOrder. getOrderEntryTime());
+        
+        //testing the the order time as final
+        try {
+            //System.out.printf("Start Time: %s\n", LocalTime.now());
+            TimeUnit.SECONDS.sleep(10);  // Wait 2 seconds
+            //System.out.printf("End Time: %s\n", LocalTime.now());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
+        System.out.println(firstOrder. getOrderEntryTime());
+
+        //testing order time as final between objects
+        System.out.println(secondOrder. getOrderEntryTime());
+
+        try {
+            //System.out.printf("Start Time: %s\n", LocalTime.now());
+            TimeUnit.SECONDS.sleep(10);  // Wait 2 seconds
+            //System.out.printf("End Time: %s\n", LocalTime.now());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(secondOrder. getOrderEntryTime());
+        System.out.println(firstOrder. getOrderNumber());
+        System.out.println(secondOrder. getOrderNumber());
 
         System.out.println("exit code 0");
 

@@ -1,7 +1,10 @@
 package pos;
 import java.util.ArrayList;
 import java.util.HashMap;
-import org.apache.commons.math3.util.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+import org.apache.commons.math3.util.Precision;
 
 
 public class Order {
@@ -9,17 +12,35 @@ public class Order {
     //hashmap is string seatNum and ArrayList of item ids for order
     private HashMap<String, ArrayList<String>> orderMap;
     
-    //needs a time/date object
-    
+    //an unchangeable time/date object
+    private final LocalDateTime orderEntryTime;
+
+    //an ordernumber that self generates on entry
+
+    private final Integer orderNumber;
+
+    //where it goes
     private int tableNumber;
 
+    //running total
     private double orderTotalPrice;
 
-    public Order(HashMap<String, ArrayList<String>> orderMap, int tableNumber){
+    //who owns the order?
+    private String orderOwner;
+
+    public Order(HashMap<String, ArrayList<String>> orderMap, String orderOwner, int tableNumber){
 
         this.orderMap = orderMap;
         this.tableNumber = tableNumber;
         this.orderTotalPrice = calculateOrderPriceTotal();
+        this.orderEntryTime = LocalDateTime.now();
+        this.orderOwner = orderOwner;
+        this.orderNumber = OrderNumerator.numberAnOrder();
+    }
+
+    public int getOrderNumber(){
+        //returns order number and number indicates
+        return this.orderNumber;
     }
 
     public int gettableNumber(){
@@ -125,6 +146,18 @@ public class Order {
     }
 
      //send the order out to stations
+
+    public String getOrderEntryTime(){
+        //returns formatted datetime obj
+        DateTimeFormatter formatOrderEntryTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss:nn");
+        String formattedDate = orderEntryTime.format(formatOrderEntryTime);
+        return formattedDate;
+    }
+
+    public String getOrderOwner(){
+        //returns the server or orderoriginator
+        return this.orderOwner;
+    }
 
     public HashMap<String, ArrayList<String>> getOrderAndSeatPos(){
 
