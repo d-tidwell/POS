@@ -1,0 +1,5 @@
+"id","itemName","itemDescription","menuHeading","price"
+"100001","test_burger","tasty digital burger","entree",10.50
+"200002","test_drink","tasty digital drink","drink",3.50
+"300003","test_misc","tasty digital misc","addon",2.25
+"400004","test_cocktail","tasty digital drink","bar",16.95
