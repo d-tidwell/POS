@@ -3,14 +3,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import org.apache.commons.math3.util.Precision;
 
 
 public class Order {
 
     //hashmap is string seatNum and ArrayList of item ids for order
-    private HashMap<String, ArrayList<String>> orderMap;
+    private HashMap<String, ArrayList<String>> orderMap; 
     
     //an unchangeable time/date object
     private final LocalDateTime orderEntryTime;
@@ -27,6 +26,9 @@ public class Order {
 
     //who owns the order?
     private String orderOwner;
+
+    //live or dead?
+    private String orderStatus = "OPEN";  // "CLOSED"
 
     public Order(HashMap<String, ArrayList<String>> orderMap, String orderOwner, int tableNumber){
 
@@ -131,6 +133,17 @@ public class Order {
     //     }
     // }
 
+    public String removeSeatFromOrder(String seatNum){
+        if(orderMap.containsKey(seatNum)){
+            orderMap.remove("seatNum");
+            System.out.println(this.orderMap);
+            return "Seat Position " + seatNum + " has been removed.";
+        }
+        else{
+            return "Seat position " + seatNum + " does not exist";
+        }
+    }
+
     public String removeItemFromOrder(String seatNum, String id){
 
         //removes an item by seatpos and id
@@ -157,6 +170,19 @@ public class Order {
     public String getOrderOwner(){
         //returns the server or orderoriginator
         return this.orderOwner;
+    }
+
+    public String getOrderStatus(boolean statuscode){
+       
+        return this.orderStatus;
+        
+    }
+
+    public String setOrderStatus(boolean statuscode){
+        if(statuscode == false){
+            return this.orderStatus = "CLOSED";
+        }
+        return "OPEN";
     }
 
     public HashMap<String, ArrayList<String>> getOrderAndSeatPos(){
