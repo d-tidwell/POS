@@ -173,12 +173,13 @@ public class Order {
     }
 
     public String getOrderStatus(boolean statuscode){
-       
+       //OPEN or CLOSED
         return this.orderStatus;
         
     }
 
     public String setOrderStatus(boolean statuscode){
+        //Sets open or closed for order
         if(statuscode == false){
             return this.orderStatus = "CLOSED";
         }
