@@ -54,6 +54,11 @@ public class ItemDatabase{
         return ItemMap.get(id).getPrice();
     }
 
+    public static String getStation(String id) {
+        initialize();
+        return ItemMap.get(id).getStation();
+    }
+
     
 
 

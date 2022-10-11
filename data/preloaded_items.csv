@@ -1,5 +1,7 @@
 "id","itemName","itemDescription","menuHeading","price"
-"100001","test_burger","tasty digital burger","entree",10.50
-"200002","test_drink","tasty digital drink","drink",3.50
-"300003","test_misc","tasty digital misc","addon",2.25
-"400004","test_cocktail","tasty digital drink","bar",16.95
+"100001","test_grill","tasty digital burger","entree",10.50
+"200002","test_saute","tasty digital drink","entree",3.50
+"300003","test_NA_drink","tasty digital drink","NA_drink",2.25
+"400004","test_cocktail","tasty digital cocktail","bar",16.95
+"500005","test_dessert","tasty digital dessert","dessert",16.95
+"600006","test_misc","tasty digital misc","misc",16.95
