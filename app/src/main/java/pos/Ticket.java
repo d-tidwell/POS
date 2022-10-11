@@ -70,28 +70,35 @@ public class Ticket {
         return "OPEN";
     }
 
-    public Map<String, HashMap<String, ArrayList<Item>>> consolidateTicket(HashMap<String, ArrayList<Item>> ticketMap){
+    public HashMap<String, HashMap<String, Integer>> consolidateTicket(HashMap<String, ArrayList<Item>> ticketMap){
+        
         // Station: Item: Count
-        Map<String, HashMap<String, ArrayList<Integer>>> consolidated =  Map<String, HashMap<String, ArrayList<Integer>>>();
+        // {"GRILL": "100001": 3}
+        HashMap<String, HashMap<String, Integer>> consolidated = new  HashMap<String, HashMap<String, Integer>>();
 
         //for seatPos in map
         for(String seatPos: ticketMap.keySet()){
 
             //for item in array of items
-            for(int i = 0; i<ticketMap.get(seatPos); i++){
+            for(int i = 0; i < ticketMap.get(seatPos).size(); i++){
                 //get the station of the item
                 String station = ticketMap.get(seatPos).get(i).getStation();
+                
                 //get the item object
                 Item item =ticketMap.get(seatPos).get(i);
-                //create an item hash map of items and values for redundancy of items
-                HashMap<String, ArrayList<Integer>> itemCount = new HashMap<String, ArrayList<Integer>>();
+
                 //if the station does not exist initialize it to zero
-                if(! consolidated.get(station)){
-                    consolidated.put(station,itemCount.put(item, 1));
+                if(! consolidated.containsKey(station)){
+                    //create an item hash map of items and values for redundancy of items
+                    HashMap<String, Integer> itemCount = new HashMap<String, Integer>();
+                    itemCount.put(item.getStation(), 1);
+                    consolidated.put(station, itemCount);
                 }
                 else{
                     //otherwise get the station the item and add one to the count
-                    consolidated.get(station, itemCount.put(item, itemCount.get(item) + 1));
+                    HashMap<String, Integer> stationMap = consolidated.get(station);
+                    stationMap.put(station, stationMap.get(item.getID()) + 1);
+                    consolidated.put(station,stationMap);
                 }
                     
                 
