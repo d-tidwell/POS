@@ -86,4 +86,23 @@ public class Table {
         }
         return closedTickets;
     }
+
+    //all below need testing *******************
+
+    public void addOrderToTable(Order order){
+        this.orders.add(order);
+    }
+
+    public void addTicketToTable(Ticket ticket){
+        this.tickets.add(ticket);
+    }
+
+    public boolean removeOrderFromTable(Order order){
+        return this.orders.remove(order);
+    }
+
+    public boolean removeTicketFromTable(Ticket ticket){
+        return this.tickets.remove(ticket);
+
+    }
 }
