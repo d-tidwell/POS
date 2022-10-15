@@ -172,7 +172,7 @@ public class Order {
         return this.orderOwner;
     }
 
-    public String getOrderStatus(boolean statuscode){
+    public String getOrderStatus(){
        //OPEN or CLOSED
         return this.orderStatus;
         

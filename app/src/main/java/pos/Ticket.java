@@ -1,5 +1,4 @@
 package pos;
-import java.util.Map;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.time.LocalDateTime;
@@ -73,7 +72,7 @@ public class Ticket {
     }
 
     public HashMap<String, HashMap<String, Integer>> consolidateTicket(){
-        
+        //makes a consolidated order for each station in stations for easier viewing of ticket in stations
         // Station: Item: Count
         // {"GRILL": "100001": 3}
         HashMap<String, HashMap<String, Integer>> consolidated = new  HashMap<String, HashMap<String, Integer>>();
@@ -106,8 +105,7 @@ public class Ticket {
                     consolidated.put(station,stationMap);
                     
                 }
-                    
-                
+
             }
         }
 
