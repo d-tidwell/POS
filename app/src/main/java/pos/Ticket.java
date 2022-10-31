@@ -8,19 +8,19 @@ import java.time.format.DateTimeFormatter;
 public class Ticket {
 
     //SeatPos / Item list
-    private HashMap<String, ArrayList<Item>> ticketMap;
+    private final HashMap<String, ArrayList<Item>> ticketMap;
 
     //an unchangeable time/date object
     private final LocalDateTime ticketTime;
 
-    //an ordernumber that self generates on entry
+    //an order-number that self generates on entry
     private final Integer ticketNumber;
 
     //where it goes
-    private int tableNumber;
+    private final int tableNumber;
 
     //who owns the order?
-    private String ticketOwner;
+    private final String ticketOwner;
 
     //live or dead?
     private String ticketStatus = "OPEN";  // "CLOSED"
@@ -48,12 +48,11 @@ public class Ticket {
     public String getTicketTime(){
         //returns formatted datetime obj
         DateTimeFormatter formatOrderEntryTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss:nn");
-        String formattedDate = ticketTime.format(formatOrderEntryTime);
-        return formattedDate;
+        return ticketTime.format(formatOrderEntryTime);
     }
 
     public String getTicketOwner(){
-        //returns the server or orderoriginator
+        //returns the server or order-originator
         return this.ticketOwner;
     }
 
@@ -63,12 +62,11 @@ public class Ticket {
         
     }
 
-    public String setTicketStatus(boolean statuscode){
+    public void setTicketStatus(boolean statusCode){
         //Sets open or closed for order
-        if(statuscode == false){
-            return this.ticketStatus = "CLOSED";
+        if(!statusCode){
+            this.ticketStatus = "CLOSED";
         }
-        return "OPEN";
     }
 
     public HashMap<String, HashMap<String, Integer>> consolidateTicket(){

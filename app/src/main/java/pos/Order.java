@@ -19,13 +19,13 @@ public class Order {
     private final Integer orderNumber;
 
     //where it goes
-    private int tableNumber;
+    private final int tableNumber;
 
     //running total
     private double orderTotalPrice;
 
     //who owns the order?
-    private String orderOwner;
+    private final String orderOwner;
 
     //live or dead?
     private String orderStatus = "OPEN";  // "CLOSED"
@@ -92,46 +92,23 @@ public class Order {
         
         //add a single item to the order by seat pos
         if(orderMap.containsKey(seatNum)){
-            // System.out.println("Before Add map " + this.orderMap );
-            // System.out.println("Item to Add: " + itemId);
-            // System.out.println("Seat to Add to: " + seatNum);
+
             ArrayList<String> currOrders = orderMap.get(seatNum);
-            // System.out.println("Seat Number Items: " + orderMap.get(seatNum));
             
             currOrders.add(itemId);
-            // System.out.println("After addition: " + currOrders);
+
             orderMap.put(seatNum, currOrders);
-            // System.out.println("After Add map " + this.orderMap );
+
             orderTotalPrice = calculateOrderPriceTotal();
         }
         else{
-            // System.out.println("Hit else statement additemtoorder");
+
             ArrayList<String> currOrders = new ArrayList<String>();
             currOrders.add(itemId);
             orderMap.put(seatNum, currOrders);
             orderTotalPrice = calculateOrderPriceTotal();
         }
     }
-
-    // **PROBLEM java.util.ConcurrentModificationException ** ?do I need this 10-7-2022
-    // public void addItemListToOrder(String seatNum, ArrayList<String> items){
-
-    //    //add a list of items by seat pos
-    //    if(orderMap.containsKey(seatNum)){
-    //     ArrayList<String> currOrders = orderMap.get(seatNum);
-    //         for(String item: items){
-    //             currOrders.add(item);
-    //         }
-    //         orderMap.put(seatNum, currOrders);
-    //     }
-    //     else{
-    //         ArrayList<String> currOrders = new ArrayList<String>();
-    //         for(String item: items){
-    //             currOrders.add(item);
-    //         }
-    //         orderMap.put(seatNum, currOrders);
-    //     }
-    // }
 
     public String removeSeatFromOrder(String seatNum){
         if(orderMap.containsKey(seatNum)){
@@ -151,7 +128,7 @@ public class Order {
             //needs a try catch block here
             orderMap.get(seatNum).remove(String.valueOf(id));
             orderTotalPrice =calculateOrderPriceTotal();
-            return "Succesfully remove" + id + " from seat position " + seatNum;
+            return "Successfully remove" + id + " from seat position " + seatNum;
         }
         else{
             return "Seat position " + seatNum + " does not exist or does not contain" + id;
@@ -163,8 +140,7 @@ public class Order {
     public String getOrderEntryTime(){
         //returns formatted datetime obj
         DateTimeFormatter formatOrderEntryTime = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss:nn");
-        String formattedDate = orderEntryTime.format(formatOrderEntryTime);
-        return formattedDate;
+        return orderEntryTime.format(formatOrderEntryTime);
     }
 
     public String getOrderOwner(){
@@ -180,7 +156,7 @@ public class Order {
 
     public String setOrderStatus(boolean statuscode){
         //Sets open or closed for order
-        if(statuscode == false){
+        if(!statuscode){
             return this.orderStatus = "CLOSED";
         }
         return "OPEN";

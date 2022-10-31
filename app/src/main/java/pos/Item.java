@@ -2,7 +2,7 @@ package pos;
 
 public class Item{
 
-    private String id;
+    private final String id;
     private String itemName;
     private String itemDescription;
     private String menuHeading;
@@ -35,31 +35,30 @@ public class Item{
         }
     }
 
-    public String getID (){
+    public String getID(){
         return this.id;
     }
 
-    public String getItemName (){
+    public String getItemName(){
         return this.itemName;
     }
 
-    public String getItemDescription (){
+    public String getItemDescription(){
         return this.itemDescription;
     }
-    public String getMenuHeading (){
+    public String getMenuHeading(){
         return this.menuHeading;
     }
-    public String getPrice (){
+    public String getPrice(){
         return this.price;
     }
 
-    public String getStation (){
+    public String getStation(){
         return this.station;
     }
 
     // Returns a string of the item's information
     public String toString () {
-        String result = "Item [id=" + id + ", itemName=" + itemName + ", itemDescription=" + itemDescription + "]";
-        return result;
+        return "Item [id=" + id + ", itemName=" + itemName + ", itemDescription=" + itemDescription + "]";
     }
 }

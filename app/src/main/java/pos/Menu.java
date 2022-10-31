@@ -79,4 +79,12 @@ public class Menu {
     public void setMenuStatus(String status){
         this.menuStatus = status;
     }
+
+    public void setMenuName(String newName){
+        this.name = newName;
+    }
+
+    public void setDayPart(String newDayPart){
+        this.dayPart = newDayPart;
+    }
 }
