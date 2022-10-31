@@ -8,6 +8,8 @@ public class OrderNumerator {
     //generates a linear value for table numbers starting at 400
     private static Integer ticketCount = 400;
 
+    private static Integer menuCount = 10000;
+
 
     public  static Integer numberAnOrder(){
         count ++;
@@ -18,6 +20,12 @@ public class OrderNumerator {
     public  static Integer numberTicket(){
         ticketCount ++;
         return count;
+
+    }
+
+    public  static String numberMenu(){
+        menuCount ++;
+        return "M" + String.valueOf(count);
 
     }
 }
