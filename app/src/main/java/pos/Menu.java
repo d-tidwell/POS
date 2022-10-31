@@ -1,20 +1,21 @@
 package pos;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class Menu {
 
     private final String menuId;
     private String name;
     private String dayPart;
+
+    private String menuStatus; //yes/no
     private HashMap<String, ArrayList<String>> sections;
 
-    public Menu(String name, String dayPart){
+    public Menu(String name, String dayPart, String active){
         this.name = name;
         this.dayPart = dayPart;
+        this.menuStatus = active;
         this.menuId = OrderNumerator.numberMenu();
     }
 
@@ -28,6 +29,10 @@ public class Menu {
 
     public String getDayPart(){
         return this.dayPart;
+    }
+
+    public String getMenuStatus(){
+        return this.menuStatus;
     }
 
     public HashMap<String, ArrayList<String>> getSections(){
@@ -69,5 +74,9 @@ public class Menu {
         for(String removeItem: newRemove){
             this.sections.get(section).remove(removeItem);
         }
+    }
+
+    public void setMenuStatus(String status){
+        this.menuStatus = status;
     }
 }
