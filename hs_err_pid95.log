@@ -1,0 +1,35 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007f1c65f9bbca, pid=95, tid=152
+#
+# JRE version: OpenJDK Runtime Environment JBR-11.0.15.10-2043.56-jcef (11.0.15+10) (build 11.0.15+10-b2043.56)
+# Java VM: OpenJDK 64-Bit Server VM JBR-11.0.15.10-2043.56-jcef (11.0.15+10-b2043.56, mixed mode, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libnvwgf2umx.so+0x2869bca]
+#
+# No core dump will be written. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugreport.java.com/bugreport/crash.jsp
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Xms128m -Xmx750m -XX:ReservedCodeCacheSize=512m -XX:+IgnoreUnrecognizedVMOptions -XX:+UseG1GC -XX:SoftRefLRUPolicyMSPerMB=50 -XX:CICompilerCount=2 -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -ea -Dsun.io.useCanonCaches=false -Djdk.http.auth.tunneling.disabledSchemes="" -Djdk.attach.allowAttachSelf=true -Djdk.module.illegalAccess.silent=true -Dkotlinx.coroutines.debug=off -Dsun.tools.attach.tmp.only=true -Xmx974m -XX:ErrorFile=/home/dtidwell/java_error_in_idea_%p.log -XX:HeapDumpPath=/home/dtidwell/java_error_in_idea_.hprof -Djb.vmOptionsFile=/home/dtidwell/.config/JetBrains/IdeaIC2022.1/idea64.vmoptions -Djava.system.class.loader=com.intellij.util.lang.PathClassLoader -Didea.strict.classpath=true -Didea.vendor.name=JetBrains -Didea.paths.selector=IdeaIC2022.1 -Didea.platform.prefix=Idea -Didea.jre.check=true -Dsplash=true com.intellij.idea.Main .
+
+Host: 11th Gen Intel(R) Core(TM) i7-11800H @ 2.30GHz, 16 cores, 7G, Ubuntu 20.04.5 LTS
+Time: Tue Nov 15 14:17:07 2022 CST elapsed time: 18393.020280 seconds (0d 5h 6m 33s)
+
+---------------  T H R E A D  ---------------
+
+Current thread is native thread
+
+Stack: [0x00007f1c62cf9000,0x00007f1c634f8000],  sp=0x00007f1c634f6e30,  free space=8183k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libnvwgf2umx.so+0x2869bca]
+
+[error occurred during error reporting (printing native stack), id 0xb, SIGSEGV (0xb) at pc=0x00007f1dbdcfe292]
+
+
+siginfo: si_signo: 11 (SIGSEGV)
