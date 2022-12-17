@@ -1,7 +1,9 @@
 package pos.models;
 
-public class Item{
-
+/**
+ * Represents an item in a restaurant menu.
+ */
+public class Item {
     private final String id;
     private String itemName;
     private String itemDescription;
@@ -9,7 +11,17 @@ public class Item{
     private String price;
     private String station;
 
-    public Item(String id, String itemName, String itemDescription, String menuHeading, String price){
+    /**
+     * Constructs a new Item with the given ID, name, description, menu heading, and price.
+     * The station is determined based on the first character of the ID.
+     *
+     * @param id the ID of the item
+     * @param itemName the name of the item
+     * @param itemDescription the description of the item
+     * @param menuHeading the menu heading of the item
+     * @param price the price of the item
+     */
+    public Item(String id, String itemName, String itemDescription, String menuHeading, String price) {
         this.id = id;
         this.itemName = itemName;
         this.itemDescription = itemDescription;
@@ -35,29 +47,65 @@ public class Item{
         }
     }
 
-    public String getID(){
+    /**
+     * Returns the ID of this item.
+     *
+     * @return the ID of the item
+     */
+    public String getID() {
         return this.id;
     }
 
-    public String getItemName(){
+    /**
+     * Returns the name of this item.
+     *
+     * @return the name of the item
+     */
+    public String getItemName() {
         return this.itemName;
     }
 
-    public String getItemDescription(){
+    /**
+     * Returns the description of this item.
+     *
+     * @return the description of the item
+     */
+    public String getItemDescription() {
         return this.itemDescription;
     }
-    public String getMenuHeading(){
+
+    /**
+     * Returns the menu heading of this item.
+     *
+     * @return the menu heading of the item
+     */
+    public String getMenuHeading() {
         return this.menuHeading;
     }
-    public String getPrice(){
+
+    /**
+     * Returns the price of this item.
+     *
+     * @return the price of the item
+     */
+    public String getPrice() {
         return this.price;
     }
 
-    public String getStation(){
+    /**
+     * Returns the station of this item.
+     *
+     * @return the station of the item
+     */
+    public String getStation() {
         return this.station;
     }
 
-    // Returns a string of the item's information
+    /**
+     * Returns a string of the item's information
+     * @return the entire Item to a String
+     */
+
     public String toString () {
         return "Item [id=" + id + ", itemName=" + itemName + ", itemDescription=" + itemDescription + "]";
     }
