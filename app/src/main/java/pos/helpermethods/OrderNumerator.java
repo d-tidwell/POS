@@ -1,4 +1,4 @@
-package pos;
+package pos.helpermethods;
 
 public class OrderNumerator {
     /**

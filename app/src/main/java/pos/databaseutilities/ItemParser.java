@@ -1,7 +1,9 @@
-package pos;
+package pos.databaseutilities;
 
 import java.util.ArrayList;
 import org.apache.commons.csv.*;
+import pos.helpermethods.FileResource;
+import pos.models.Item;
 
 
 public class ItemParser{

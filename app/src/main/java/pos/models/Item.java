@@ -1,4 +1,4 @@
-package pos;
+package pos.models;
 
 public class Item{
 

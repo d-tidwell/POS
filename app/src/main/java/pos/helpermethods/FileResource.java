@@ -1,4 +1,4 @@
-package pos;
+package pos.helpermethods;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.net.URL;
@@ -12,7 +12,7 @@ import java.io.FileWriter;
 import java.io.Reader;
 import java.io.StringReader;
 import org.apache.commons.csv.*;
-
+import pos.helpermethods.FileSelector;
 
 
 /**

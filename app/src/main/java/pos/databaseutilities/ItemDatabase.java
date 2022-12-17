@@ -1,23 +1,28 @@
-package pos;
+package pos.databaseutilities;
+import pos.models.Item;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 
 
+
 public class ItemDatabase{
+    /**
+     * ItemDatabase acts as a local class to store .csv records for retrieval in a hashmap
+     */
+    private static HashMap<String, Item> ItemMap;
 
-    private static HashMap<String,Item> ItemMap;
-
-    public static void initialize(String itemfile){
-        if(ItemMap == null){
-            ItemMap = new HashMap<String, Item>();
-            loadItems(itemfile);
-        }
-    }
+//    public static void initialize(String itemfile){
+//        if(ItemMap == null){
+//            ItemMap = new HashMap<String, Item>();
+//            loadItems(itemfile);
+//        }
+//    }
     //default items .csv file
     public static void initialize() {
         if (ItemMap == null) {
             ItemMap = new HashMap<String, Item>();
-            loadItems("data/preloaded_items.csv");
+            loadItems("preloaded_items.csv");
         }
     }
 
@@ -53,13 +58,5 @@ public class ItemDatabase{
         initialize();
         return ItemMap.get(id).getPrice();
     }
-
-    public static String getStation(String id) {
-        initialize();
-        return ItemMap.get(id).getStation();
-    }
-
-    
-
 
 }

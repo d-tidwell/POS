@@ -1,4 +1,6 @@
-package pos;
+package pos.models;
+
+import pos.helpermethods.OrderNumerator;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,4 +1,6 @@
-package pos;
+package pos.models;
+import pos.helpermethods.OrderNumerator;
+
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.time.LocalDateTime;

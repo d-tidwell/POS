@@ -1,4 +1,10 @@
 package pos;
+import pos.databaseutilities.ItemDatabase;
+import pos.databaseutilities.ItemWriter;
+import pos.models.Item;
+import pos.models.Order;
+import pos.models.Ticket;
+
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class App{
     public static void main(String[] args) {
         
-        ItemDatabase.initialize("/mnt/c/Code/java/pprojects/POS/data/preloaded_items.csv");
+        ItemDatabase.initialize();
         // String id = "000001";
         // System.out.println(ItemDatabase.containsID(id));
         // System.out.println(ItemDatabase.getItemName(id));
@@ -168,7 +174,10 @@ public class App{
 
         System.out.println("exit code 0");
 
-        //need to test Ticket Queue setup 
-        
+        //need to test Ticket Queue setup
+        ItemWriter iW = new ItemWriter("600007,test_add,add misc,misc,16.95");
+
+        boolean confirm = iW.write();
+        System.out.println(confirm + ", ?item added?");
     }
 }

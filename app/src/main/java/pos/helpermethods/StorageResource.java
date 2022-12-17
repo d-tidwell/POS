@@ -1,4 +1,4 @@
-package pos;
+package pos.helpermethods;
 
 import java.util.ArrayList;
 import java.util.Arrays;

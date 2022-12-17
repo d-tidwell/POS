@@ -1,9 +1,11 @@
-package pos;
+package pos.models;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import org.apache.commons.math3.util.Precision;
+import pos.databaseutilities.ItemDatabase;
+import pos.helpermethods.OrderNumerator;
 
 
 public class Order {

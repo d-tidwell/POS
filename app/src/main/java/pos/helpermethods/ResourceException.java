@@ -1,4 +1,4 @@
-package pos;
+package pos.helpermethods;
 
 /**
  * A general exception for Resource objects.
